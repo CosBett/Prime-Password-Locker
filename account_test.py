@@ -27,3 +27,21 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(self.new_contact.last_name, "Bett")
         self.assertEqual(self.new_contact.username, "Prime")
         self.assertEqual(self.new_contact.password, "M@2021")
+
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Account.account_list = []
+
+    def test_save_account(self):
+        '''
+        test_save_account test case to test if the account object is saved into
+         the accounts list
+        '''
+        self.new_account.save_account()  # saving the new account
+        self.assertEqual(len(Account.account_list), 1)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -9,9 +9,3 @@ class Account:
         self.last_name = last_name
         self.user_name = username
         self.password = password
-
-    def tearDown(self):
-        '''
-        tearDown method that does clean up after each test case has run.
-        '''
-        Account.account_list = []
