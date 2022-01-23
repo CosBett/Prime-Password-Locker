@@ -43,6 +43,19 @@ class TestAccount(unittest.TestCase):
         self.new_account.save_account()  # saving the new account
         self.assertEqual(len(Account.accounts_list), 1)
 
+    # Test method for multiple accounts addition
+    def test_save_multiple_accounts(self):
+        '''
+        this test check if we can save multiple accounts
+        objects to our accounts_list
+        '''
+        self.new_account.save_account()
+        test_account = Account(
+            "Cosmas", "Bett", "Prime", "M@2021")
+
+        test_account.save_account()
+        self.assertEqual(len(Account.accounts_list), 2)
+
     def test_delete_account(self):
         '''
         This method is to test if we can remove an account from our accounts list
