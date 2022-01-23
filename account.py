@@ -42,3 +42,7 @@ class Account:
             if account.username == username:
                 return True
         return False
+
+    @classmethod
+    def display_accounts(cls):
+        return cls.accounts_list
