@@ -23,10 +23,10 @@ class TestAccount(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_contact.first_name, "Cosmas")
-        self.assertEqual(self.new_contact.last_name, "Bett")
-        self.assertEqual(self.new_contact.username, "Prime")
-        self.assertEqual(self.new_contact.password, "M@2021")
+        self.assertEqual(self.new_account.first_name, "Cosmas")
+        self.assertEqual(self.new_account.last_name, "Bett")
+        self.assertEqual(self.new_account.username, "Prime")
+        self.assertEqual(self.new_account.password, "M@2021")
 
     def tearDown(self):
         '''
