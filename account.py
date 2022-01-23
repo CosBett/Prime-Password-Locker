@@ -12,14 +12,23 @@ class Account:
 
     def save_account(self):
         '''
-        save_account method saves account objects into accounts_list
+        save_account function saves account objects into accounts_list
         '''
 
         Account.accounts_list.append(self)
 
     def delete_account(self):
         '''
-        delete_account method remove account objects from accounts_list
+        delete_account function remove account objects from accounts_list
         '''
 
         Account.accounts_list.remove(self)
+
+    @classmethod
+    def find_by_username(cls, username):
+        '''
+       This function allow a user to search account by username and return back the account
+       '''
+        for account in cls.accounts_list:
+            if account.account_list == username:
+                return account
