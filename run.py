@@ -10,3 +10,11 @@ def create_account(first_name, last_name, username, password):
 
 def save_account(account):
     account.save_account()
+
+
+def delete_account(account):
+    account.delete_account()
+
+
+def find_account(username):
+    return Account.find_by_username(username)
