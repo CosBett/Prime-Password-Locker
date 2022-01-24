@@ -45,4 +45,7 @@ class Account:
 
     @classmethod
     def display_accounts(cls):
+        '''
+        Function to display accounts
+        '''
         return cls.accounts_list

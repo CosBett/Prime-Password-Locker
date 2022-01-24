@@ -48,6 +48,26 @@ class TestPaswords(unittest.TestCase):
         self.new_password.delete_site()
         self.assertEqual(len(Password.passwords_list), 1)
 
+    def test_find_site(self):
+        '''
+        This checks if the function to find password using site names is executable and working 
+        '''
+        self.new_password.save_site()
+        test_pass = Password('Netlify', '22222')
+        test_pass.save_site()
+        found_site = Password.find_by_site('Netlify')
+        self.assertEqual(found_site.site, test_pass.site)
+
+    def page_exists(self):
+        '''
+        returns a true/false value depending on prescence of the searched password
+        '''
+        self.new_password.save_site()
+        test_pass = Password('Netlify', '22222')
+        test_pass.save_site()
+        site_exist = Password.find_by_page('Netlify')
+        self.assertTrue(site_exist)
+
 
 if __name__ == '__main__':
     unittest.main()
