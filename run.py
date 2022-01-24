@@ -6,3 +6,7 @@ from password import Password
 def create_account(first_name, last_name, username, password):
     account = Account(first_name, last_name, username, password)
     return account
+
+
+def save_account(account):
+    account.save_account()
