@@ -18,3 +18,11 @@ def delete_account(account):
 
 def find_account(username):
     return Account.find_by_username(username)
+
+
+def exist_account(username):
+    return Account.account_exists(username)
+
+
+def display_account():
+    return Account.display_account()
