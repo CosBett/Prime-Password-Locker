@@ -1,5 +1,4 @@
 #!/usr/bin/env python3.9
-from ast import While
 from account import Account
 from password import Password
 
@@ -43,7 +42,7 @@ def display_account():
     '''
     Function to display contact
     '''
-    return Account.display_account()
+    return Account.display_accounts()
 
 # Password Class
 
@@ -57,7 +56,7 @@ def save_site(passwords):
     passwords.save_site()
 
 
-def delete_site(passwords):
+def delete_sitef(passwords):
     passwords.delete_site()
 
 
@@ -76,23 +75,18 @@ def display_sites():
 
 
 def main():
+    print('˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜')
     print('Welcome  To Prime Password Locker')
-    print('/˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜')
+    print('˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜')
     print('Kindly reply with below Numbers for an Option')
 
     while True:
+        print('____________________________________________')
 
-        print('1) Display Accounts \n 2 Login \n 3) Create Account \n 4) Exit')
+        print(' 1. Login \n 2. Create Account \n 3. Display Accounts \n 4. Delete Account \n 5. Exit')
 
         option = int(input())
         if option == 1:
-            if display_account():
-                for account in display_account():
-                    print(f'{account.username}')
-            else:
-                print('No Accounts Found')
-
-        elif option == 2:
             print('Enter your username')
             username = input()
             print('Énter your password')
@@ -100,13 +94,15 @@ def main():
             account = find_account(username)
             if account.username == username and account.password == password:
 
-                print('Logged in Successfully')
+                print(f'{username} you have logged in Successfully')
                 while True:
+                    print(
+                        '____________________________________________________________')
                     print(
                         f'Welcome {username}, Kindly reply with below Numbers for an Option')
 
                     print(
-                        '1) Save new Password \n 2) Display Saved Password \n 3) Delete Password \n 4) Exit')
+                        ' 1. Save new Password \n 2. Display Saved Password \n 3. Delete Password \n 4. Homepage')
                     login_option = int(input())
                     if login_option == 1:
                         print('New site')
@@ -122,7 +118,7 @@ def main():
                     elif login_option == 2:
                         if display_sites():
                             for page in display_sites():
-                                print(f'{page.site}:{page.paseword}')
+                                print(f'{page.site} :  {page.paseword}')
                         else:
                             print('No password saved for this site!')
                             print('\n')
@@ -130,10 +126,10 @@ def main():
                     elif login_option == 3:
                         print('Please enter the name of site to delete')
 
-                        page = input()
+                        site = input()
                         if isexist_site(site):
                             remove_site = (site)
-                            delete_site(remove_site)
+                            delete_sitef(remove_site)
 
                         else:
                             print(
@@ -144,7 +140,7 @@ def main():
             else:
                 print('Incorrect Username or password!')
 
-        elif option == 3:
+        elif option == 2:
             print('New Account')
             print('˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜')
 
@@ -165,10 +161,12 @@ def main():
             print('Account has been created!')
             while True:
                 print(
+                    '_________________________________________________________________')
+                print(
                     f'Welcome {username} Kindly reply with below Numbers for an Option')
 
                 print(
-                    '1) Save new Password \n 2) Display Saved Password \n 3) Delete Password \n 4) Exit')
+                    ' 1. Save new Password \n 2. Display Saved Password \n 3. Delete Password \n 4. Exit')
                 login_option = int(input())
                 if login_option == 1:
                     print('New site')
@@ -184,7 +182,7 @@ def main():
                 elif login_option == 2:
                     if display_sites():
                         for page in display_sites():
-                            print(f'{page.site}:{page.paseword}')
+                            print(f'{page.site} :  3{page.password}')
                     else:
                         print('No password saved for this site!')
                         print('\n')
@@ -195,7 +193,7 @@ def main():
                     page = input()
                     if isexist_site(site):
                         remove_site = (site)
-                        delete_site(remove_site)
+                        delete_sitef(remove_site)
 
                     else:
                         print(
@@ -203,3 +201,28 @@ def main():
                 elif login_option == 4:
                     print('Thank you, Bye')
                     break
+                else:
+                    print('Choose Number')
+        elif option == 1:
+            if display_account():
+                for account in display_account():
+                    print(f'{account.username}')
+            else:
+                print('No Accounts Found')
+
+        elif option == 4:
+            print('Please enter the Account to delete')
+
+            account = input()
+            if isexits_account(account):
+                remove_account = (site)
+                delete_account(remove_account)
+
+        elif option == 5:
+            print('Thank you for choosing Prime password locker, Bye!')
+            break
+
+
+if __name__ == '__main__':
+
+    main()
