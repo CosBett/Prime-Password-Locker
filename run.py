@@ -21,7 +21,7 @@ def delete_account(account):
     '''
     Function to delete contact
     '''
-    account.delete_account()
+    Account.delete_account(account)
 
 
 def find_account(username):
@@ -166,7 +166,7 @@ def main():
                     f'Welcome {username} Kindly reply with below Numbers for an Option')
 
                 print(
-                    ' 1. Save new Password \n 2. Display Saved Password \n 3. Delete Password \n 4. Exit')
+                    ' 1. Save new Password \n 2. Display Saved Password \n 3. Delete Password \n 4. Homepage')
                 login_option = int(input())
                 if login_option == 1:
                     print('New site')
@@ -212,10 +212,9 @@ def main():
 
         elif option == 4:
             print('Please enter the Account to delete')
-
             account = input()
             if isexits_account(account):
-                remove_account = (site)
+                remove_account = (account)
                 delete_account(remove_account)
 
         elif option == 5:
